@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_socialathlete_domain_SAUser" items="${sausers}" z="sHC1bNFEEVLPiWapiYLIGEqh+AE=">
+        <table:table data="${sausers}" id="l_com_socialathlete_domain_SAUser" path="/sausers" z="zNI1drbs9CDxhQcERTnwzQH839s=">
+            <table:column id="c_com_socialathlete_domain_SAUser_username" property="username" z="7wngKSGzgNB4fdFsk0pfBv+2doY="/>
+            <table:column id="c_com_socialathlete_domain_SAUser_password" property="password" z="eNNjjxtTNthZP3x+3ITYFP5TD70="/>
+            <table:column id="c_com_socialathlete_domain_SAUser_firstName" property="firstName" z="ZSY8+DG4LGIIPUnEofiaSqJpGng="/>
+            <table:column id="c_com_socialathlete_domain_SAUser_lastName" property="lastName" z="Lfs2pnPtlQuFAQoV4xHiS4EYgUY="/>
+        </table:table>
+    </page:list>
+</div>

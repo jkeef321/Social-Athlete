@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="sausers/list">
+        <put-attribute name="body" value="/WEB-INF/views/sausers/list.jspx"/>
+    </definition>
+<definition extends="default" name="sausers/show">
+        <put-attribute name="body" value="/WEB-INF/views/sausers/show.jspx"/>
+    </definition>
+<definition extends="default" name="sausers/create">
+        <put-attribute name="body" value="/WEB-INF/views/sausers/create.jspx"/>
+    </definition>
+<definition extends="default" name="sausers/update">
+        <put-attribute name="body" value="/WEB-INF/views/sausers/update.jspx"/>
+    </definition>
+</tiles-definitions>
