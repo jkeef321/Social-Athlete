@@ -10,5 +10,25 @@
         <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
             <menu:item id="i_controller__saindex_id" messageCode="global_generic" url="/sa/index" z="eJUmHzbv0oe3+yATa3iAA+Ka/h8="/>
         </menu:category>
+        <menu:category id="c_saaccounttype" z="O2e4Ly1jYgvIBqblTyvMYn/3pOU=">
+            <menu:item id="i_saaccounttype_new" messageCode="global_menu_new" url="/saaccounttypes?form" z="DDjxVh02sY9QfDV12sYWCgb3QNA="/>
+            <menu:item id="i_saaccounttype_list" messageCode="global_menu_list" url="/saaccounttypes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="IbhPeySJawZEBza8tXcUpsaP1do="/>
+        </menu:category>
+        <menu:category id="c_sateam" z="QtuhUz2CTR16i77n/ay9OVkyUY4=">
+            <menu:item id="i_sateam_new" messageCode="global_menu_new" url="/sateams?form" z="yjUp3mXviN7S0jNLQdnjYuRRcj0="/>
+            <menu:item id="i_sateam_list" messageCode="global_menu_list" url="/sateams?page=1&amp;size=${empty param.size ? 10 : param.size}" z="eD5Lrr8+AfiLWPoZlKaSZ2C0rHE="/>
+        </menu:category>
+        <menu:category id="c_saleague" z="BC8HqWGD2ytFZwAklDSV3YF8rVA=">
+            <menu:item id="i_saleague_new" messageCode="global_menu_new" url="/saleagues?form" z="jyLvfFzP2tjYHvH8nhorG2dPLlE="/>
+            <menu:item id="i_saleague_list" messageCode="global_menu_list" url="/saleagues?page=1&amp;size=${empty param.size ? 10 : param.size}" z="dexU1i26YrCoXWSM97Uf68KkI5U="/>
+        </menu:category>
+        <menu:category id="c_saplayer" z="Lt8nkix3U2A5LSBQNS7s00LZh3c=">
+            <menu:item id="i_saplayer_new" messageCode="global_menu_new" url="/saplayers?form" z="O77oJS79zWl5NbS1eCAoSe/Lci0="/>
+            <menu:item id="i_saplayer_list" messageCode="global_menu_list" url="/saplayers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="q7bRpuntIBu/+tnCb345uVXG/cY="/>
+        </menu:category>
+        <menu:category id="c_sasocialaccount" z="6d6Sv8P7XWDUsKgElxm82hSq4go=">
+            <menu:item id="i_sasocialaccount_new" messageCode="global_menu_new" url="/sasocialaccounts?form" z="Z3XS1kTaH6HzQOWrrtJ9oukZvFg="/>
+            <menu:item id="i_sasocialaccount_list" messageCode="global_menu_list" url="/sasocialaccounts?page=1&amp;size=${empty param.size ? 10 : param.size}" z="vb4ZRhIikrSkKfBZYMRK3pC/O+U="/>
+        </menu:category>
     </menu:menu>
 </div>

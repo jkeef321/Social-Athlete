@@ -7,6 +7,9 @@
         <field:input field="password" id="c_com_socialathlete_domain_SAUser_password" required="true" z="krBwhUyE/40mKUSa/kJnVNtg/Sc="/>
         <field:input field="firstName" id="c_com_socialathlete_domain_SAUser_firstName" required="true" z="p3Nkr37eFyljUw5zoTmen8+px40="/>
         <field:input field="lastName" id="c_com_socialathlete_domain_SAUser_lastName" required="true" z="XtPP+JoMHtorHtDfptZ+osWT29k="/>
+        <field:input field="emailAddress" id="c_com_socialathlete_domain_SAUser_emailAddress" validationMessageCode="field_invalid_email" z="fwDDCPRh2MpcEPUR6WRYhjShzyU="/>
+        <field:select field="socialAccounts" id="c_com_socialathlete_domain_SAUser_socialAccounts" itemValue="id" items="${sasocialaccounts}" multiple="true" path="/sasocialaccounts" z="BGahmtlxOHazICswbJYkH2wL7oI="/>
+        <field:select field="following" id="c_com_socialathlete_domain_SAUser_following" itemValue="id" items="${saplayers}" multiple="true" path="/saplayers" z="jBbTrWJc7kkLgAGX925xYVotX1c="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_socialathlete_domain_SAUser" render="${not empty dependencies}" z="VR5xlxVjTpR7zQCI+PSpetMRAN8="/>
 </div>

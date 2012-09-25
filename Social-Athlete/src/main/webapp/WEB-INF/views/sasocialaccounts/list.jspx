@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_socialathlete_domain_SASocialAccount" items="${sasocialaccounts}" z="p/crPRHT8GDOzeI9U3LKdeUN+nc=">
+        <table:table data="${sasocialaccounts}" id="l_com_socialathlete_domain_SASocialAccount" path="/sasocialaccounts" z="TC9bfdyQLhlrKs5dLY2kyrgCgug=">
+            <table:column id="c_com_socialathlete_domain_SASocialAccount_accountHandle" property="accountHandle" z="Y5D7/xwlOFbZmicHMhlJvAClLqU="/>
+            <table:column id="c_com_socialathlete_domain_SASocialAccount_accountType" property="accountType" z="wFtP35eWfmFy7V9E3WCRxeFYugg="/>
+            <table:column id="c_com_socialathlete_domain_SASocialAccount_verified" property="verified" z="Y+OLXCbOp16fZLp0RahlxG6sftk="/>
+        </table:table>
+    </page:list>
+</div>

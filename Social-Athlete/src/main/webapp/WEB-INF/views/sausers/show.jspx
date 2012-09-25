@@ -7,5 +7,8 @@
         <field:display field="password" id="s_com_socialathlete_domain_SAUser_password" object="${sauser_}" z="waJ+khod6TL/r4BwFldAsiuT6+c="/>
         <field:display field="firstName" id="s_com_socialathlete_domain_SAUser_firstName" object="${sauser_}" z="qucK8yu4/06mdGKkllbpl9LoGGM="/>
         <field:display field="lastName" id="s_com_socialathlete_domain_SAUser_lastName" object="${sauser_}" z="ozE9sQP68bIPoTKWZ2H93oAAzMQ="/>
+        <field:display field="emailAddress" id="s_com_socialathlete_domain_SAUser_emailAddress" object="${sauser_}" z="bprIozwGCxlRLKgxPHQWbsS/N0Q="/>
+        <field:display field="socialAccounts" id="s_com_socialathlete_domain_SAUser_socialAccounts" object="${sauser_}" z="QG7styrHVqKWU16xExI6BzakWQE="/>
+        <field:display field="following" id="s_com_socialathlete_domain_SAUser_following" object="${sauser_}" z="JW6dtv8wsQ09kvwynJAa46OyqSU="/>
     </page:show>
 </div>

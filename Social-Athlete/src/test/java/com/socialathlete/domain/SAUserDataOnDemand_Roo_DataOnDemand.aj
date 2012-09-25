@@ -24,11 +24,17 @@ privileged aspect SAUserDataOnDemand_Roo_DataOnDemand {
     
     public SAUser SAUserDataOnDemand.getNewTransientSAUser(int index) {
         SAUser obj = new SAUser();
+        setEmailAddress(obj, index);
         setFirstName(obj, index);
         setLastName(obj, index);
         setPassword(obj, index);
         setUsername(obj, index);
         return obj;
+    }
+    
+    public void SAUserDataOnDemand.setEmailAddress(SAUser obj, int index) {
+        String emailAddress = "foo" + index + "@bar.com";
+        obj.setEmailAddress(emailAddress);
     }
     
     public void SAUserDataOnDemand.setFirstName(SAUser obj, int index) {

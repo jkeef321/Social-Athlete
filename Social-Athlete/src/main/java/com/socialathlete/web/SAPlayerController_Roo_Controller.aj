@@ -5,8 +5,8 @@ package com.socialathlete.web;
 
 import com.socialathlete.domain.SAPlayer;
 import com.socialathlete.domain.SASocialAccount;
-import com.socialathlete.domain.SAUser;
-import com.socialathlete.web.SAUserController;
+import com.socialathlete.domain.SATeam;
+import com.socialathlete.web.SAPlayerController;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -19,80 +19,80 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
-privileged aspect SAUserController_Roo_Controller {
+privileged aspect SAPlayerController_Roo_Controller {
     
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String SAUserController.create(@Valid SAUser SAUser_, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+    public String SAPlayerController.create(@Valid SAPlayer SAPlayer_, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, SAUser_);
-            return "sausers/create";
+            populateEditForm(uiModel, SAPlayer_);
+            return "saplayers/create";
         }
         uiModel.asMap().clear();
-        SAUser_.persist();
-        return "redirect:/sausers/" + encodeUrlPathSegment(SAUser_.getId().toString(), httpServletRequest);
+        SAPlayer_.persist();
+        return "redirect:/saplayers/" + encodeUrlPathSegment(SAPlayer_.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(params = "form", produces = "text/html")
-    public String SAUserController.createForm(Model uiModel) {
-        populateEditForm(uiModel, new SAUser());
-        return "sausers/create";
+    public String SAPlayerController.createForm(Model uiModel) {
+        populateEditForm(uiModel, new SAPlayer());
+        return "saplayers/create";
     }
     
     @RequestMapping(value = "/{id}", produces = "text/html")
-    public String SAUserController.show(@PathVariable("id") Long id, Model uiModel) {
-        uiModel.addAttribute("sauser_", SAUser.findSAUser(id));
+    public String SAPlayerController.show(@PathVariable("id") Long id, Model uiModel) {
+        uiModel.addAttribute("saplayer_", SAPlayer.findSAPlayer(id));
         uiModel.addAttribute("itemId", id);
-        return "sausers/show";
+        return "saplayers/show";
     }
     
     @RequestMapping(produces = "text/html")
-    public String SAUserController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    public String SAPlayerController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
             final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
-            uiModel.addAttribute("sausers", SAUser.findSAUserEntries(firstResult, sizeNo));
-            float nrOfPages = (float) SAUser.countSAUsers() / sizeNo;
+            uiModel.addAttribute("saplayers", SAPlayer.findSAPlayerEntries(firstResult, sizeNo));
+            float nrOfPages = (float) SAPlayer.countSAPlayers() / sizeNo;
             uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
-            uiModel.addAttribute("sausers", SAUser.findAllSAUsers());
+            uiModel.addAttribute("saplayers", SAPlayer.findAllSAPlayers());
         }
-        return "sausers/list";
+        return "saplayers/list";
     }
     
     @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String SAUserController.update(@Valid SAUser SAUser_, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+    public String SAPlayerController.update(@Valid SAPlayer SAPlayer_, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, SAUser_);
-            return "sausers/update";
+            populateEditForm(uiModel, SAPlayer_);
+            return "saplayers/update";
         }
         uiModel.asMap().clear();
-        SAUser_.merge();
-        return "redirect:/sausers/" + encodeUrlPathSegment(SAUser_.getId().toString(), httpServletRequest);
+        SAPlayer_.merge();
+        return "redirect:/saplayers/" + encodeUrlPathSegment(SAPlayer_.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String SAUserController.updateForm(@PathVariable("id") Long id, Model uiModel) {
-        populateEditForm(uiModel, SAUser.findSAUser(id));
-        return "sausers/update";
+    public String SAPlayerController.updateForm(@PathVariable("id") Long id, Model uiModel) {
+        populateEditForm(uiModel, SAPlayer.findSAPlayer(id));
+        return "saplayers/update";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String SAUserController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
-        SAUser SAUser_ = SAUser.findSAUser(id);
-        SAUser_.remove();
+    public String SAPlayerController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+        SAPlayer SAPlayer_ = SAPlayer.findSAPlayer(id);
+        SAPlayer_.remove();
         uiModel.asMap().clear();
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
-        return "redirect:/sausers";
+        return "redirect:/saplayers";
     }
     
-    void SAUserController.populateEditForm(Model uiModel, SAUser SAUser_) {
-        uiModel.addAttribute("SAUser_", SAUser_);
-        uiModel.addAttribute("saplayers", SAPlayer.findAllSAPlayers());
+    void SAPlayerController.populateEditForm(Model uiModel, SAPlayer SAPlayer_) {
+        uiModel.addAttribute("SAPlayer_", SAPlayer_);
         uiModel.addAttribute("sasocialaccounts", SASocialAccount.findAllSASocialAccounts());
+        uiModel.addAttribute("sateams", SATeam.findAllSATeams());
     }
     
-    String SAUserController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
+    String SAPlayerController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
         String enc = httpServletRequest.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;

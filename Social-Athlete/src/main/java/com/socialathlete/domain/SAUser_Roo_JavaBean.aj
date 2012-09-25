@@ -3,7 +3,10 @@
 
 package com.socialathlete.domain;
 
+import com.socialathlete.domain.SAPlayer;
+import com.socialathlete.domain.SASocialAccount;
 import com.socialathlete.domain.SAUser;
+import java.util.Set;
 
 privileged aspect SAUser_Roo_JavaBean {
     
@@ -37,6 +40,30 @@ privileged aspect SAUser_Roo_JavaBean {
     
     public void SAUser.setLastName(String lastName) {
         this.lastName = lastName;
+    }
+    
+    public String SAUser.getEmailAddress() {
+        return this.emailAddress;
+    }
+    
+    public void SAUser.setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+    
+    public Set<SASocialAccount> SAUser.getSocialAccounts() {
+        return this.socialAccounts;
+    }
+    
+    public void SAUser.setSocialAccounts(Set<SASocialAccount> socialAccounts) {
+        this.socialAccounts = socialAccounts;
+    }
+    
+    public Set<SAPlayer> SAUser.getFollowing() {
+        return this.following;
+    }
+    
+    public void SAUser.setFollowing(Set<SAPlayer> following) {
+        this.following = following;
     }
     
 }

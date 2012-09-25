@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_socialathlete_domain_SATeam" modelAttribute="SATeam_" path="/sateams" versionField="Version" z="eDDvDdScku3D2BrYK46vnaDvkyc=">
+        <field:input field="teamName" id="c_com_socialathlete_domain_SATeam_teamName" z="QAZwkeVcM1VqsB888Bf801hU9k4="/>
+        <field:select field="league" id="c_com_socialathlete_domain_SATeam_league" itemValue="id" items="${saleagues}" path="/saleagues" z="hcTzxr7nHssB5w5VSE0eDMxRh3M="/>
+    </form:update>
+</div>

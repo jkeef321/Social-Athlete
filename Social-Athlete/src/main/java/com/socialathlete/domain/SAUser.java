@@ -1,5 +1,9 @@
 package com.socialathlete.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
@@ -21,4 +25,12 @@ public class SAUser {
 
     @NotNull
     private String lastName;
+
+    private String emailAddress;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<SASocialAccount> socialAccounts = new HashSet<SASocialAccount>();
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<SAPlayer> following = new HashSet<SAPlayer>();
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_socialathlete_domain_SASocialAccount" object="${sasocialaccount_}" path="/sasocialaccounts" z="jcvqpB9Ix1bU5l536JHq+zVJMCA=">
+        <field:display field="accountHandle" id="s_com_socialathlete_domain_SASocialAccount_accountHandle" object="${sasocialaccount_}" z="Wh1319J/GoEjFwofLHvE/jfW4rU="/>
+        <field:display field="accountType" id="s_com_socialathlete_domain_SASocialAccount_accountType" object="${sasocialaccount_}" z="AqPI0/nwD83Z6SM9jsaP67LYciE="/>
+        <field:display field="verified" id="s_com_socialathlete_domain_SASocialAccount_verified" object="${sasocialaccount_}" z="mDSQr3Fr4c4iYhgLGdalszGf1rg="/>
+    </page:show>
+</div>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_socialathlete_domain_SASocialAccount" modelAttribute="SASocialAccount_" path="/sasocialaccounts" versionField="Version" z="EheAg03yh04V29oiL35Uiwb00Qw=">
+        <field:input field="accountHandle" id="c_com_socialathlete_domain_SASocialAccount_accountHandle" z="XaymhE6XY/JNf5OAkd29TMCyzPA="/>
+        <field:select field="accountType" id="c_com_socialathlete_domain_SASocialAccount_accountType" itemValue="id" items="${saaccounttypes}" path="/saaccounttypes" z="9hlgmx3uYyYqVG+zv3WzIrAgTlw="/>
+        <field:checkbox field="verified" id="c_com_socialathlete_domain_SASocialAccount_verified" z="Wa9d7gPRqnoHK393aypHUGI7UeU="/>
+    </form:update>
+</div>
