@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" version="2.0">
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" version="2.0">
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
   <jsp:output omit-xml-declaration="yes"/>
   <spring:message code="label_sa_index" htmlEscape="false" var="title"/>
@@ -8,5 +8,13 @@
     <h3>
       <spring:message arguments="${app_name}" code="welcome_titlepane"/>
     </h3>
+    <ul>
+	<c:if test="${not empty tweets}">
+	<c:forEach items="${tweets}" var="tweet">
+		<li><img src="${tweet.profileImageUrl}" align="middle"/><c:out value="${tweet.createdAt}"/><br/><c:out value="${tweet.text}" escapeXml="false"/></li>
+		<br></br>
+	</c:forEach>
+	</c:if>
+	</ul>	
   </util:panel>
 </div>
