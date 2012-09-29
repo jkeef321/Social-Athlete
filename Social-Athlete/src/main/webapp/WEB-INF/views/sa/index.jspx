@@ -6,7 +6,7 @@
   <util:panel id="title" title="${title}">
     <spring:message code="application_name" htmlEscape="false" var="app_name"/>
     <h3>
-      <spring:message arguments="${app_name}" code="welcome_titlepane"/>
+      <spring:message arguments="${user_name}" code="sa_user_welcome"/>
     </h3>
     <ul>
 	<c:if test="${not empty tweets}">
