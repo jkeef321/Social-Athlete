@@ -9,6 +9,7 @@
         </menu:category>
         <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
             <menu:item id="i_controller__saindex_id" messageCode="global_generic" url="/sa/index" z="eJUmHzbv0oe3+yATa3iAA+Ka/h8="/>
+            <menu:item id="i_controller__sadataloaderindex_id" messageCode="global_generic" url="/sadataloader/index" z="JaUbTiA9o+JgCx9IbYnYY3+4lI4="/>
         </menu:category>
         <menu:category id="c_saaccounttype" z="O2e4Ly1jYgvIBqblTyvMYn/3pOU=">
             <menu:item id="i_saaccounttype_new" messageCode="global_menu_new" url="/saaccounttypes?form" z="DDjxVh02sY9QfDV12sYWCgb3QNA="/>
