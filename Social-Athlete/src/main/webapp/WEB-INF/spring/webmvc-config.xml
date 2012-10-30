@@ -58,7 +58,7 @@
             </props>
         </property>
     </bean>
-
+    
     <!-- Enable this for integration of file upload functionality -->
     <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver"/>
 <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" id="tilesViewResolver">
@@ -74,4 +74,11 @@
     </property>
   </bean>
 <bean class="com.socialathlete.web.ApplicationConversionServiceFactoryBean" id="applicationConversionService"/>
+
+    <bean class="org.springframework.social.connect.web.ConnectController">
+    <!-- relies on by-type autowiring for the constructor-args -->
+</bean>
+    
+    
+
 </beans>
