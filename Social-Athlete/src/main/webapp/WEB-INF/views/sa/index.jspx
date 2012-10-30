@@ -10,9 +10,13 @@
     </h3>
     <ul>
     <form action="/Social-Athlete/connect/twitter" method="POST">
-    <p>You haven't created any connections with Twitter yet. Click the button to create
-       a connection between your account and your Twitter profile. 
-       (You'll be redirected to Twitter where you'll be asked to authorize the connection.)</p>
+    <p>Connect with Twitter!</p>
+    <p><button type="submit"/></p>
+</form>
+	</ul>
+    <ul>
+    <form action="/Social-Athlete/signin/twitter" method="POST">
+    <p>Sign In with Twitter!</p>
     <p><button type="submit"/></p>
 </form>
 	</ul>

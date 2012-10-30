@@ -41,6 +41,7 @@ public class SAController {
     @RequestMapping(value = "/sa/twitterhome", method = RequestMethod.POST)
     public String twitterhome(WebRequest request, Model model){
     	    	
+    	
     	TimelineOperations timelineOps = twitter.timelineOperations();
 		List<Tweet> results = timelineOps.getUserTimeline("carlosvaldes5");
     	
