@@ -16,6 +16,8 @@ import org.springframework.social.twitter.api.TwitterProfile;
 import org.springframework.ui.Model;
 import org.springframework.web.context.request.WebRequest;
 import javax.inject.Inject;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 @RequestMapping("/sa/**")
 @Controller
@@ -34,6 +36,9 @@ public class SAController {
     
 	@RequestMapping
 	public String index(WebRequest request, Model model) {
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String username = auth.getName(); 
 		
 		TimelineOperations timelineOps = twitter.timelineOperations();
 		List<Tweet> results = timelineOps.getUserTimeline("carlosvaldes5");
