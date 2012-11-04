@@ -4,9 +4,9 @@
   <jsp:output omit-xml-declaration="yes"/>
   <spring:message code="label_sa_index" htmlEscape="false" var="title"/>
   <util:panel id="title" title="${title}">
-    	<c:if test="${not empty tweets}">
-	<c:forEach items="${tweets}" var="tweet">
-		<li><img src="${tweet.profileImageUrl}" align="middle"/><c:out value="${tweet.createdAt}"/><br/><c:out value="${tweet.text}" escapeXml="false"/></li>
+    	<c:if test="${not empty messages}">
+	<c:forEach items="${messages}" var="message">
+		<li><img src="${message.getProfileUrl()}" align="middle"/><c:out value="${message.getCreatedAt()}"/><br/><c:out value="${message.getMessage()}" escapeXml="false"/></li>
 		<br></br>
 	</c:forEach>
 	</c:if>

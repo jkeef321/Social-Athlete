@@ -9,25 +9,23 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.social.twitter.api.TimelineOperations;
-import org.springframework.social.twitter.api.Tweet;
-import org.springframework.social.twitter.api.Twitter;
-import org.springframework.social.twitter.api.TwitterProfile;
 import org.springframework.ui.Model;
 import org.springframework.web.context.request.WebRequest;
 import javax.inject.Inject;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import com.socialathlete.service.SocialService;
+import com.socialathlete.domain.SocialMessage;
 
 @RequestMapping("/sa/**")
 @Controller
 public class SAController {
 	
-	private final Twitter twitter;
+	private final SocialService socialService;
     
 	@Inject
-	public SAController(Twitter twitter) {
-		this.twitter = twitter;
+	public SAController(SocialService socialService) {
+		this.socialService = socialService;
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "{id}")
@@ -40,17 +38,9 @@ public class SAController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    String username = auth.getName(); 
 		
-		TimelineOperations timelineOps = twitter.timelineOperations();
-		List<Tweet> results = timelineOps.getUserTimeline("carlosvaldes5");
-    	
-		results.addAll(timelineOps.getUserTimeline("zacmacmath"));
+		List <SocialMessage> results = socialService.getTimelineForFollowers(username);
 		
-		TwitterProfile profile = twitter.userOperations().getUserProfile();
-		
-		String user_name_twitter = profile.getName();
-		
-		model.addAttribute("tweets", results);
-		model.addAttribute("user_name", user_name_twitter);
+		model.addAttribute("messages", results);
 		
 		return "sa/index";
 	}
