@@ -33,16 +33,9 @@ public class SAController {
     }
     
 	@RequestMapping
-	public String index(WebRequest request) {
+	public String index(WebRequest request, Model model) {
 		
-		return "sa/index";
-	}
-	
-    @RequestMapping(value = "/sa/twitterhome", method = RequestMethod.POST)
-    public String twitterhome(WebRequest request, Model model){
-    	    	
-    	
-    	TimelineOperations timelineOps = twitter.timelineOperations();
+		TimelineOperations timelineOps = twitter.timelineOperations();
 		List<Tweet> results = timelineOps.getUserTimeline("carlosvaldes5");
     	
 		results.addAll(timelineOps.getUserTimeline("zacmacmath"));
@@ -53,8 +46,8 @@ public class SAController {
 		
 		model.addAttribute("tweets", results);
 		model.addAttribute("user_name", user_name_twitter);
-		return "twitterhome";
-    }
-    
-    
+		
+		return "sa/index";
+	}
+	    
 }

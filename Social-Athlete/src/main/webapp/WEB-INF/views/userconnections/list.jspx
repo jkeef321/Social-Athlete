@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_socialathlete_domain_Userconnection" items="${userconnections}" z="lH0rE8wObBec+afWHO0+DCX5B0U=">
+        <table:table data="${userconnections}" id="l_com_socialathlete_domain_Userconnection" path="/userconnections" z="hT9CjJGSkD+mawdMXzd2pK6xAPQ=">
+            <table:column id="c_com_socialathlete_domain_Userconnection_userid" property="userid" z="pFhdoRKcvd2RxcIuw00QHI1aS3s="/>
+            <table:column id="c_com_socialathlete_domain_Userconnection_providerid" property="providerid" z="sUN4/fWEeq/qkFS9z9hF5aVlE6k="/>
+            <table:column id="c_com_socialathlete_domain_Userconnection_provideruserid" property="provideruserid" z="Zvmju3x5mti7nzFaj1mIZ+z1JDo="/>
+            <table:column id="c_com_socialathlete_domain_Userconnection_rank" property="rank" z="mm8L1e0zVug+i0JyCYUmqdVNo14="/>
+            <table:column id="c_com_socialathlete_domain_Userconnection_displayname" property="displayname" z="C3hRMgpXjCyoscLktwQcYRjpwDU="/>
+            <table:column id="c_com_socialathlete_domain_Userconnection_profileurl" property="profileurl" z="C2QYE4w+tYRaTZzag2BAQs9yzn0="/>
+        </table:table>
+    </page:list>
+</div>

@@ -9,6 +9,7 @@ import com.socialathlete.domain.SAPlayer;
 import com.socialathlete.domain.SASocialAccount;
 import com.socialathlete.domain.SATeam;
 import com.socialathlete.domain.SAUser;
+import com.socialathlete.domain.Userconnection;
 import com.socialathlete.web.ApplicationConversionServiceFactoryBean;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
@@ -162,6 +163,30 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
+    public Converter<Userconnection, String> ApplicationConversionServiceFactoryBean.getUserconnectionToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.socialathlete.domain.Userconnection, java.lang.String>() {
+            public String convert(Userconnection userconnection) {
+                return new StringBuilder().append(userconnection.getUserid()).append(' ').append(userconnection.getProviderid()).append(' ').append(userconnection.getProvideruserid()).append(' ').append(userconnection.getRank()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Userconnection> ApplicationConversionServiceFactoryBean.getIdToUserconnectionConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.socialathlete.domain.Userconnection>() {
+            public com.socialathlete.domain.Userconnection convert(java.lang.Long id) {
+                return Userconnection.findUserconnection(id);
+            }
+        };
+    }
+    
+    public Converter<String, Userconnection> ApplicationConversionServiceFactoryBean.getStringToUserconnectionConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.socialathlete.domain.Userconnection>() {
+            public com.socialathlete.domain.Userconnection convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Userconnection.class);
+            }
+        };
+    }
+    
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
         registry.addConverter(getSAAccountTypeToStringConverter());
         registry.addConverter(getIdToSAAccountTypeConverter());
@@ -181,6 +206,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getSAUserToStringConverter());
         registry.addConverter(getIdToSAUserConverter());
         registry.addConverter(getStringToSAUserConverter());
+        registry.addConverter(getUserconnectionToStringConverter());
+        registry.addConverter(getIdToUserconnectionConverter());
+        registry.addConverter(getStringToUserconnectionConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {

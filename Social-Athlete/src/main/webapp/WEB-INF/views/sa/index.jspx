@@ -4,21 +4,11 @@
   <jsp:output omit-xml-declaration="yes"/>
   <spring:message code="label_sa_index" htmlEscape="false" var="title"/>
   <util:panel id="title" title="${title}">
-    <spring:message code="application_name" htmlEscape="false" var="app_name"/>
-    <h3>
-      <spring:message arguments="${user_name}" code="sa_user_welcome"/>
-    </h3>
-    <ul>
-    <form action="/Social-Athlete/connect/twitter" method="POST">
-    <p>Connect with Twitter!</p>
-    <p><button type="submit"/></p>
-</form>
-	</ul>
-    <ul>
-    <form action="/Social-Athlete/signin/twitter" method="POST">
-    <p>Sign In with Twitter!</p>
-    <p><button type="submit"/></p>
-</form>
-	</ul>
+    	<c:if test="${not empty tweets}">
+	<c:forEach items="${tweets}" var="tweet">
+		<li><img src="${tweet.profileImageUrl}" align="middle"/><c:out value="${tweet.createdAt}"/><br/><c:out value="${tweet.text}" escapeXml="false"/></li>
+		<br></br>
+	</c:forEach>
+	</c:if>
   </util:panel>
 </div>

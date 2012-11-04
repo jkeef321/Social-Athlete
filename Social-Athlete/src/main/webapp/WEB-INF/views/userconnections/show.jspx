@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_socialathlete_domain_Userconnection" object="${userconnection}" path="/userconnections" z="4mEL/FhWHSz/v/g2uJ7qPM46Ksk=">
+        <field:display field="userid" id="s_com_socialathlete_domain_Userconnection_userid" object="${userconnection}" z="Bp1TrSehOxW8QZPXfEEV5LCjnGM="/>
+        <field:display field="providerid" id="s_com_socialathlete_domain_Userconnection_providerid" object="${userconnection}" z="S/mVJJTC9v44KjJ92T9mOGpsFaM="/>
+        <field:display field="provideruserid" id="s_com_socialathlete_domain_Userconnection_provideruserid" object="${userconnection}" z="PnX2i0TDJIsTb+NIoB498P1KyR4="/>
+        <field:display field="rank" id="s_com_socialathlete_domain_Userconnection_rank" object="${userconnection}" z="lR5Dhl9bhIRl4bdITT/cTeJbLds="/>
+        <field:display field="displayname" id="s_com_socialathlete_domain_Userconnection_displayname" object="${userconnection}" z="yJgQIAjNgVzBmjRgJGepz8Oqiyo="/>
+        <field:display field="profileurl" id="s_com_socialathlete_domain_Userconnection_profileurl" object="${userconnection}" z="tZbz/rCUyQYbJSOVsluyiXYjFO8="/>
+        <field:display field="imageurl" id="s_com_socialathlete_domain_Userconnection_imageurl" object="${userconnection}" z="eu3mOkAVu/++whdYI7x/3b6A5sk="/>
+        <field:display field="accesstoken" id="s_com_socialathlete_domain_Userconnection_accesstoken" object="${userconnection}" z="AZAq6+dB9h+MX7VfEiOuv+1+jK8="/>
+        <field:display field="secret" id="s_com_socialathlete_domain_Userconnection_secret" object="${userconnection}" z="aDknvAnGMklUCOsQh8KmP9TP5SQ="/>
+        <field:display field="refreshtoken" id="s_com_socialathlete_domain_Userconnection_refreshtoken" object="${userconnection}" z="u6GHBkt6C2uSVrX2pRNcIpaiTxc="/>
+        <field:display field="expiretime" id="s_com_socialathlete_domain_Userconnection_expiretime" object="${userconnection}" z="LAWQ5JhzUEM/V56jPO1XDgvs23U="/>
+    </page:show>
+</div>

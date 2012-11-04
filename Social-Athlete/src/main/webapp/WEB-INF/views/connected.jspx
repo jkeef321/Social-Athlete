@@ -5,7 +5,7 @@
   <spring:message code="security_login_title" var="title" htmlEscape="false" />
   <util:panel id="title" title="${title}">
     <c:out value="${provider}" /> is now connected
-  	<form action="/Social-Athlete/sa/twitterhome" method="POST">
+  	<form action="/Social-Athlete/sa" method="GET">
     <p>Go Home!!</p>
     <p><button type="submit"/></p>
 	</form>

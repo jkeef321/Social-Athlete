@@ -10,6 +10,7 @@
         <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
             <menu:item id="i_controller__saindex_id" messageCode="global_generic" url="/sa/index" z="eJUmHzbv0oe3+yATa3iAA+Ka/h8="/>
             <menu:item id="i_controller__sadataloaderindex_id" messageCode="global_generic" url="/sadataloader/index" z="JaUbTiA9o+JgCx9IbYnYY3+4lI4="/>
+            <menu:item id="i_controller__saconnectindex_id" messageCode="global_generic" url="/saconnect/index" z="6ONUHQgqC1HvaY/0ikXASgbnu5I="/>
         </menu:category>
         <menu:category id="c_saaccounttype" z="O2e4Ly1jYgvIBqblTyvMYn/3pOU=">
             <menu:item id="i_saaccounttype_new" messageCode="global_menu_new" url="/saaccounttypes?form" z="DDjxVh02sY9QfDV12sYWCgb3QNA="/>
@@ -30,6 +31,10 @@
         <menu:category id="c_sasocialaccount" z="6d6Sv8P7XWDUsKgElxm82hSq4go=">
             <menu:item id="i_sasocialaccount_new" messageCode="global_menu_new" url="/sasocialaccounts?form" z="Z3XS1kTaH6HzQOWrrtJ9oukZvFg="/>
             <menu:item id="i_sasocialaccount_list" messageCode="global_menu_list" url="/sasocialaccounts?page=1&amp;size=${empty param.size ? 10 : param.size}" z="vb4ZRhIikrSkKfBZYMRK3pC/O+U="/>
+        </menu:category>
+        <menu:category id="c_userconnection" z="HyllXedGgNlLILP5gycpfGZYm80=">
+            <menu:item id="i_userconnection_new" messageCode="global_menu_new" url="/userconnections?form" z="0zSAF0fZbPuobt1N12hcClgy8SA="/>
+            <menu:item id="i_userconnection_list" messageCode="global_menu_list" url="/userconnections?page=1&amp;size=${empty param.size ? 10 : param.size}" z="fOgRMIkiwpORoOzwF33c3cCCuwE="/>
         </menu:category>
     </menu:menu>
 </div>
