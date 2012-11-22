@@ -23,6 +23,7 @@
             <user-service>
                 <user name="admin" password="admin" authorities="ROLE_ADMIN" />
                 <user name="keeferjustin" password="user" authorities="ROLE_USER" />
+                <user name="beginimage" password="user" authorities="ROLE_USER" />
             </user-service>
         </authentication-provider>
     </authentication-manager>

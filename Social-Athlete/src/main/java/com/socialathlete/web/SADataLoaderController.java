@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.socialathlete.domain.*;
+
 import java.util.HashSet;
 
 @RequestMapping("/sadataloader/**")
@@ -38,6 +39,11 @@ public class SADataLoaderController {
     	justin_sa.setAccountType(twitter);
     	justin_sa.setAccountHandle("keeferjustin");
     	justin_sa.persist();
+    	
+    	SASocialAccount todd_sa = new SASocialAccount();
+    	todd_sa.setAccountType(twitter);
+    	todd_sa.setAccountHandle("beginimage");
+    	todd_sa.persist();
     	
     	SASocialAccount valdes_sa = new SASocialAccount();
     	valdes_sa.setAccountType(twitter);
@@ -79,6 +85,21 @@ public class SADataLoaderController {
     	justin.setSocialAccounts(jus_hs_2);
     	justin.setUsername("keeferjustin");  	
     	justin.persist();
+    	
+    	SAUser todd = new SAUser();
+    	todd.setEmailAddress("tcoulson@gmail.com");
+    	todd.setFirstName("Todd");
+    	HashSet<SAPlayer> todd_hs = new HashSet<SAPlayer>();
+    	todd_hs.add(valdes);
+    	todd_hs.add(zac);
+    	todd.setFollowing(todd_hs);
+    	todd.setLastName("Coulson");
+    	todd.setPassword("password");
+    	HashSet<SASocialAccount> todd_hs_2 = new HashSet<SASocialAccount>();
+    	todd_hs_2.add(todd_sa);
+    	todd.setSocialAccounts(todd_hs_2);
+    	todd.setUsername("beginimage");  	
+    	todd.persist();
     	
     	return "sadataloader/index";
     }
