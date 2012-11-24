@@ -3,6 +3,9 @@ package com.socialathlete.service;
 import java.util.List;
 import javax.inject.Inject;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
 
 import org.springframework.social.twitter.api.TimelineOperations;
 import org.springframework.social.twitter.api.Tweet;
@@ -28,9 +31,11 @@ public class TwitterSocialService implements SocialService {
 	public List <SocialMessage> getTimelineForFollowers(String userid)
 	{
 		//Get Followers
-		List <String> followers = userDao.getFollowersByUserId(userid);
+		List <String> old_followers = userDao.getFollowersByUserId(userid);
 		List <SocialMessage> messages = new ArrayList();
 		TimelineOperations timelineOps = twitter.timelineOperations();
+		
+		List<String> followers = new ArrayList<String>(new HashSet<String>(old_followers));
 		
 		for (String follower : followers)
 		{
@@ -40,7 +45,7 @@ public class TwitterSocialService implements SocialService {
 	    	{
 	    		SocialMessage sm = new SocialMessage();
 	    		sm.setProfileUrl(tweet.getProfileImageUrl());
-	    		sm.setCreatedAt(tweet.getCreatedAt().toString());
+	    		sm.setCreatedAt(tweet.getCreatedAt());
 	    		sm.setMessage(tweet.getText());
 	    		messages.add(sm);
 	    	}
@@ -48,7 +53,26 @@ public class TwitterSocialService implements SocialService {
 			
 		}
 		
+		Collections.sort(messages, COMPARATOR);
+		
 		return messages;
 	}
+	
+	private static Comparator<SocialMessage> COMPARATOR = new Comparator<SocialMessage>()
+	{
+		public int compare(SocialMessage s1, SocialMessage s2)
+		{
+			if (s1.getCreatedAt().before(s2.getCreatedAt())) {
+	            return 1;
+	        } else if (s1.getCreatedAt().after(s2.getCreatedAt())) {
+	            return -1;
+	        } else {
+	            return 0;
+	        } 
+			
+			
+		}
+	};
+			
 
 }

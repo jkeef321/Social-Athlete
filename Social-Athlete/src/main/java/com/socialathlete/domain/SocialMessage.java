@@ -1,5 +1,7 @@
 package com.socialathlete.domain;
 
+import java.util.Date;
+
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
 
@@ -9,7 +11,7 @@ public class SocialMessage {
 	
 	private String profileUrl;
 	
-	private String createdAt;
+	private Date createdAt;
 	
 	private String message;
 
@@ -21,11 +23,11 @@ public class SocialMessage {
 		this.message = message;
 	}
 
-	public String getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(String createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
