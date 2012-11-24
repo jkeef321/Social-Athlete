@@ -13,7 +13,6 @@ import javax.persistence.NoResultException;
 import org.springframework.stereotype.Service;
 
 import com.socialathlete.domain.SAUser;
-import com.socialathlete.web.sausersignup.SAUserSignUpService;
 
 @Service
 public class UserDAOImpl implements UserDAO {
