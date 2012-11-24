@@ -5,18 +5,9 @@
   <spring:message code="label_saconnect_index" htmlEscape="false" var="title"/>
    <util:panel id="title" title="${title}">
     <spring:message code="application_name" htmlEscape="false" var="app_name"/>
-    <h3>
-      <spring:message arguments="${user_name}" code="sa_user_welcome"/>
-    </h3>
     <ul>
     <form action="/Social-Athlete/connect/twitter" method="POST">
     <p>Connect with Twitter!</p>
-    <p><button type="submit"/></p>
-</form>
-	</ul>
-    <ul>
-    <form action="/Social-Athlete/signin/twitter" method="POST">
-    <p>Sign In with Twitter!</p>
     <p><button type="submit"/></p>
 </form>
 	</ul>
