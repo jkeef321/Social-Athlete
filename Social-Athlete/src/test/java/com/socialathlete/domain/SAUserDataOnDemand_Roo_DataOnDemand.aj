@@ -25,9 +25,11 @@ privileged aspect SAUserDataOnDemand_Roo_DataOnDemand {
     public SAUser SAUserDataOnDemand.getNewTransientSAUser(int index) {
         SAUser obj = new SAUser();
         setEmailAddress(obj, index);
+        setEnabled(obj, index);
         setFirstName(obj, index);
         setLastName(obj, index);
         setPassword(obj, index);
+        setRole(obj, index);
         setUsername(obj, index);
         return obj;
     }
@@ -35,6 +37,11 @@ privileged aspect SAUserDataOnDemand_Roo_DataOnDemand {
     public void SAUserDataOnDemand.setEmailAddress(SAUser obj, int index) {
         String emailAddress = "foo" + index + "@bar.com";
         obj.setEmailAddress(emailAddress);
+    }
+    
+    public void SAUserDataOnDemand.setEnabled(SAUser obj, int index) {
+        Boolean enabled = Boolean.TRUE;
+        obj.setEnabled(enabled);
     }
     
     public void SAUserDataOnDemand.setFirstName(SAUser obj, int index) {
@@ -50,6 +57,11 @@ privileged aspect SAUserDataOnDemand_Roo_DataOnDemand {
     public void SAUserDataOnDemand.setPassword(SAUser obj, int index) {
         String password = "password_" + index;
         obj.setPassword(password);
+    }
+    
+    public void SAUserDataOnDemand.setRole(SAUser obj, int index) {
+        String role = "role_" + index;
+        obj.setRole(role);
     }
     
     public void SAUserDataOnDemand.setUsername(SAUser obj, int index) {

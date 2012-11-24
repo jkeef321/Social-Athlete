@@ -9,7 +9,7 @@
             <table:column id="c_com_socialathlete_domain_SAUser_firstName" property="firstName" z="ZSY8+DG4LGIIPUnEofiaSqJpGng="/>
             <table:column id="c_com_socialathlete_domain_SAUser_lastName" property="lastName" z="Lfs2pnPtlQuFAQoV4xHiS4EYgUY="/>
             <table:column id="c_com_socialathlete_domain_SAUser_emailAddress" property="emailAddress" z="2y0jhgW+zxVoj8BUQNiSVaBBFZo="/>
-            <table:column id="c_com_socialathlete_domain_SAUser_socialAccounts" property="socialAccounts" z="cGIF3jlgw6Dfo+i9pEEE1BonPiA="/>
+            <table:column id="c_com_socialathlete_domain_SAUser_enabled" property="enabled" z="mOUHRB2DXoT4Ehe1ql5+k6bG/ls="/>
         </table:table>
     </page:list>
 </div>

@@ -17,15 +17,19 @@
         <intercept-url pattern="/**" access="isAuthenticated()" />
     </http>
     <!-- Configure Authentication mechanism -->
-    <authentication-manager alias="authenticationManager">
-        <!-- SHA-256 values can be produced using 'echo -n your_desired_password | sha256sum' (using normal *nix environments) -->
+   <authentication-manager alias="authenticationManager">
         <authentication-provider>
-            <!-- <password-encoder hash="sha-256" /> -->
-            <user-service>
-                <user name="admin" password="admin" authorities="ROLE_ADMIN" />
-                <user name="keeferjustin" password="user" authorities="ROLE_USER" />
-                <user name="beginimage" password="user" authorities="ROLE_USER" />
-            </user-service>
+        
+          <jdbc-user-service data-source-ref="dataSource"
+ 
+		   users-by-username-query="
+		      select username,password, enabled 
+		      from sauser where username=?" 
+ 
+		   authorities-by-username-query="
+		      select username, role from sauser u where u.username =?  " 
+ 
+		/>
         </authentication-provider>
     </authentication-manager>
 </beans:beans>

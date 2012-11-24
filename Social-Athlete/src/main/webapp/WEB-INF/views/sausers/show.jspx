@@ -10,5 +10,7 @@
         <field:display field="emailAddress" id="s_com_socialathlete_domain_SAUser_emailAddress" object="${sauser_}" z="bprIozwGCxlRLKgxPHQWbsS/N0Q="/>
         <field:display field="socialAccounts" id="s_com_socialathlete_domain_SAUser_socialAccounts" object="${sauser_}" z="QG7styrHVqKWU16xExI6BzakWQE="/>
         <field:display field="following" id="s_com_socialathlete_domain_SAUser_following" object="${sauser_}" z="JW6dtv8wsQ09kvwynJAa46OyqSU="/>
+        <field:display field="enabled" id="s_com_socialathlete_domain_SAUser_enabled" object="${sauser_}" z="RE8w7os1v/+5GR3w8nFAcIW2uB8="/>
+        <field:display field="role" id="s_com_socialathlete_domain_SAUser_role" object="${sauser_}" z="/AN0NAA8Hf4p+5YwGcPbKIxORvM="/>
     </page:show>
 </div>

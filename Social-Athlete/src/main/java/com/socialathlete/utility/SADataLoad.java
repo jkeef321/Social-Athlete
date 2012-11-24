@@ -75,7 +75,9 @@ public class SADataLoad implements ApplicationListener<ContextRefreshedEvent>{
     	HashSet jus_hs_2 = new HashSet();
     	jus_hs_2.add(justin_sa);
     	justin.setSocialAccounts(jus_hs_2);
-    	justin.setUsername("keeferjustin");  	
+    	justin.setUsername("keeferjustin");
+    	justin.setEnabled(true);
+    	justin.setRole("ROLE_ADMIN");
     	justin.persist();
     	
     	SAUser todd = new SAUser();
@@ -90,7 +92,9 @@ public class SADataLoad implements ApplicationListener<ContextRefreshedEvent>{
     	HashSet<SASocialAccount> todd_hs_2 = new HashSet<SASocialAccount>();
     	todd_hs_2.add(todd_sa);
     	todd.setSocialAccounts(todd_hs_2);
-    	todd.setUsername("beginimage");  	
+    	todd.setUsername("beginimage");  
+    	todd.setEnabled(true);
+    	todd.setRole("ROLE_ADMIN");
     	todd.persist();
 	}
 

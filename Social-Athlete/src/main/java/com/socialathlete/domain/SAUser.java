@@ -27,6 +27,10 @@ public class SAUser {
     private String lastName;
 
     private String emailAddress;
+    
+    private Boolean enabled;
+    
+    private String role;
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<SASocialAccount> socialAccounts = new HashSet<SASocialAccount>();

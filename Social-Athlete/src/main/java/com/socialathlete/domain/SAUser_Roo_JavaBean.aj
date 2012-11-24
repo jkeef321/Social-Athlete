@@ -50,6 +50,22 @@ privileged aspect SAUser_Roo_JavaBean {
         this.emailAddress = emailAddress;
     }
     
+    public Boolean SAUser.getEnabled() {
+        return this.enabled;
+    }
+    
+    public void SAUser.setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+    
+    public String SAUser.getRole() {
+        return this.role;
+    }
+    
+    public void SAUser.setRole(String role) {
+        this.role = role;
+    }
+    
     public Set<SASocialAccount> SAUser.getSocialAccounts() {
         return this.socialAccounts;
     }
