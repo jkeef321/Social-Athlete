@@ -55,6 +55,11 @@
         <input id="reset" type="reset" value="${fn:escapeXml(reset_label)}" />
       </div>
     </form>
+    
+    <form action="/Social-Athlete/sacreateaccount/index" method="GET">
+    <p>Create Account<button type="submit"/></p>
+	</form>
+	
   </util:panel>
 </div>
 
