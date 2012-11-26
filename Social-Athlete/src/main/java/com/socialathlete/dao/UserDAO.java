@@ -9,4 +9,6 @@ public interface UserDAO {
 	public List<String> getTeamsByLeague(String league);
 	
 	public SAUser getUserbyUsername(String username);
+	
+	public void saveUser(SAUser user);
 }
