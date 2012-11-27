@@ -75,7 +75,7 @@ public class SADataLoad implements ApplicationListener<ContextRefreshedEvent>{
     	zac.setSocialAccount(zac_hs);
     	zac.persist();
     	
-    	SAUser justin = new SAUser();
+    	/*SAUser justin = new SAUser();
     	justin.setEmailAddress("justin@keefer.com");
     	justin.setFirstName("Justin");
     	HashSet jus_hs = new HashSet();
@@ -91,6 +91,7 @@ public class SADataLoad implements ApplicationListener<ContextRefreshedEvent>{
     	justin.setEnabled(true);
     	justin.setRole("ROLE_ADMIN");
     	justin.persist();
+    	*/
     	
     	SAUser todd = new SAUser();
     	todd.setEmailAddress("tcoulson@gmail.com");

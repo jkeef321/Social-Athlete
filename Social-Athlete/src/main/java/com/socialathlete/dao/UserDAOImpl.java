@@ -121,7 +121,7 @@ public class UserDAOImpl implements UserDAO {
 	
 	public void saveUser(SAUser user)
 	{
-		user.persist();
+		user.merge();
 		
 	}
 	

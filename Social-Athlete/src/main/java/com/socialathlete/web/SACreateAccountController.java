@@ -34,7 +34,7 @@ public class SACreateAccountController  {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-    public void post(@ModelAttribute UserForm user ,Model model, ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
+    public String post(@ModelAttribute UserForm user ,Model model, ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
     	
     	log.error("Value of user: " + user.getLastName());
 		SAUser user_to_save = new SAUser();
@@ -50,6 +50,8 @@ public class SACreateAccountController  {
 		
 		
 		userDao.saveUser(user_to_save);
+		
+		return "login";
 		
     }
 
