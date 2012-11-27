@@ -5,15 +5,27 @@ import org.springframework.stereotype.Component;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.transaction.annotation.Transactional;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
+import com.socialathlete.dao.UserDAOImpl;
 import com.socialathlete.domain.*;
 
 @Component
 public class SADataLoad implements ApplicationListener<ContextRefreshedEvent>{
 
+	private static final Log log = LogFactory.getLog(SADataLoad.class);
+	
 	@Override
 	@Transactional
 	public void onApplicationEvent(ContextRefreshedEvent event) {
+		
+		log.error(event.getApplicationContext().getDisplayName());
+		
+		if(event.getApplicationContext().getDisplayName() == "Root WebApplicationContext")
+		{
+		log.error("Starting Data Load");
+		
 		SALeague mls = new SALeague();
     	mls.setLeagueName("MLS");
     	mls.persist();
@@ -96,6 +108,7 @@ public class SADataLoad implements ApplicationListener<ContextRefreshedEvent>{
     	todd.setEnabled(true);
     	todd.setRole("ROLE_ADMIN");
     	todd.persist();
+		}
 	}
 
 }

@@ -146,7 +146,7 @@ public class UserDAOImpl implements UserDAO {
 				}
 				
 			}
-			log.debug("Number in result: " + result.size());
+			log.error("Number in result: " + result.size());
 			
 			return result;
 		}
