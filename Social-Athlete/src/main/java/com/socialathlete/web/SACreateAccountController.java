@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import javax.inject.Inject;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import com.socialathlete.dao.UserDAO;
 import com.socialathlete.domain.SAUser;
@@ -20,23 +22,27 @@ import com.socialathlete.domain.SAUser;
 @Controller
 public class SACreateAccountController  {
 
-    
+	private static final Log log = LogFactory.getLog(SACreateAccountController.class);
+	
 	private final UserDAO userDao;
 	
 	@Inject
 	public SACreateAccountController( UserDAO userDao) {
+		
 		this.userDao = userDao;
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "{id}")
-    public void post(@ModelAttribute SAUser user ,Model model, @PathVariable Long id, ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(method = RequestMethod.POST)
+    public void post(@ModelAttribute SAUser user ,Model model, ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
     	
-    	userDao.saveUser(user);
+    	log.error("Value of user: " + user.getLastName());
+		userDao.saveUser(user);
     }
 
     @RequestMapping
     public String index(Model model ) {
         model.addAttribute("user", new SAUser());
-    	return "sacreateaccount/index";
+        log.error("Got HERE!");
+        return "sacreateaccount/index";
     }
 }
