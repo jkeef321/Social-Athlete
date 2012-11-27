@@ -9,11 +9,11 @@
       <spring:message arguments="${app_name}" code="welcome_titlepane"/>
     </h3>
      <form:form action="/Social-Athlete/sacreateaccount" method="POST" commandName="user">
-     	<!--  <label >
+     	<label >
           Twitter Handle:
         </label>
-        <form:input path="socialAccounts" type='text' style="width:150px" />
-        <br/>-->
+        <form:input path="twitter_handle" type='text' style="width:150px" />
+        <br/>
         <label >
           Password:
         </label>
@@ -35,15 +35,13 @@
         <form:input path="lastName" type='text'  style="width:150px" />
         <br/>
         <label>
-          Username:
+          Team to Follow:
         </label>
-        <form:input path="username" type='text'  style="width:150px" />
-        <br/>
-        <!--  <label >
-          Following:
-        </label>
-        <form:input path="following" type='text' style="width:150px" />
-        <br/>-->
+        <form:select path="team_to_follow">
+                    <form:option value="NONE" label="--- Select ---" />
+                    <form:options items="${team_list}" />
+                    </form:select>
+
     <p>Create Account<input type="submit" value="Submit"/></p>
 	</form:form>
   </util:panel>

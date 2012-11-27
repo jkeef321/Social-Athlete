@@ -16,6 +16,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.socialathlete.dao.UserDAO;
+import com.socialathlete.domain.UserForm;
 import com.socialathlete.domain.SAUser;
 
 @RequestMapping("/sacreateaccount/**")
@@ -33,16 +34,30 @@ public class SACreateAccountController  {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-    public void post(@ModelAttribute SAUser user ,Model model, ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
+    public void post(@ModelAttribute UserForm user ,Model model, ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
     	
     	log.error("Value of user: " + user.getLastName());
-		userDao.saveUser(user);
+		SAUser user_to_save = new SAUser();
+		user_to_save.setEmailAddress(user.getEmailAddress());
+		user_to_save.setEnabled(true);
+		user_to_save.setFirstName(user.getFirstName());
+		user_to_save.setFollowing(userDao.getPlayersByTeam(user.getTeam_to_follow()));
+		user_to_save.setLastName(user.getLastName());
+		user_to_save.setPassword(user.getPassword());
+		user_to_save.setRole("ROLE_USER");
+		user_to_save.setSocialAccounts(userDao.getSocialAccountByHandle(user.getTwitter_handle()));
+		user_to_save.setUsername(user.getTwitter_handle());
+		
+		
+		userDao.saveUser(user_to_save);
+		
     }
 
     @RequestMapping
     public String index(Model model ) {
-        model.addAttribute("user", new SAUser());
+        model.addAttribute("user", new UserForm());
         log.error("Got HERE!");
+        model.addAttribute("team_list", userDao.getTeamsByLeague("MLS"));
         return "sacreateaccount/index";
     }
 }

@@ -4,21 +4,32 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
+
+import java.util.HashSet;
 import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
+import java.util.Set;
+
 import javax.persistence.NoResultException;
 
 
 import org.springframework.stereotype.Service;
 
+import com.socialathlete.domain.SASocialAccount;
 import com.socialathlete.domain.SAUser;
+import com.socialathlete.domain.SAPlayer;
+import com.socialathlete.web.SACreateAccountController;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 @Service
 public class UserDAOImpl implements UserDAO {
 	
 	private EntityManagerFactory emf;
 	
+	private static final Log log = LogFactory.getLog(UserDAOImpl.class);
 	
 	@PersistenceUnit
 	public void setEntityManagerFactory(EntityManagerFactory emf) {
@@ -112,5 +123,68 @@ public class UserDAOImpl implements UserDAO {
 	{
 		user.persist();
 		
+	}
+	
+	public Set<SAPlayer> getPlayersByTeam(String team){
+		EntityManager em = this.emf.createEntityManager();
+		try {
+			
+			log.error("Team to search is : " + team);
+			
+			Query query = em.createQuery(" select OBJECT(sp) from SAPlayer sp join sp.team t where t.teamName = ?1");
+			query.setParameter(1, team);
+			List results = query.getResultList();
+			HashSet<SAPlayer> result = new HashSet();
+			
+			log.error("Number of results: " + results.size());
+			if(results.size()!= 0)
+			{
+				Iterator it = results.iterator();
+				while(it.hasNext())
+				{
+					result.add((SAPlayer) it.next());
+				}
+				
+			}
+			log.debug("Number in result: " + result.size());
+			
+			return result;
+		}
+		finally {
+			if (em != null) {
+				em.close();
+			}
+			
+		}
+	}
+	
+	public Set<SASocialAccount> getSocialAccountByHandle(String handle)
+	{
+		EntityManager em = this.emf.createEntityManager();
+		try {
+			Query query = em.createQuery(" from SASocialAccount sa where sa.accountHandle = ?1");
+			query.setParameter(1, handle);
+			List results = query.getResultList();
+			HashSet<SASocialAccount> result = new HashSet();
+			if(results.size()!= 0)
+			{
+				Iterator it = results.iterator();
+				while(it.hasNext())
+				{
+					result.add((SASocialAccount) it.next());
+				}
+				
+			}
+			
+			return result;
+		}
+		finally {
+			if (em != null) {
+				em.close();
+			}
+			
+		}
+		
+	
 	}
 }
