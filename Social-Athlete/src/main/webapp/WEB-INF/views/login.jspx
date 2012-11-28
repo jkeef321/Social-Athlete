@@ -57,7 +57,7 @@
     </form>
     
     <form action="/Social-Athlete/sacreateaccount/index" method="GET">
-    <p>Create Account<button type="submit"/></p>
+    <p><input type="submit" value="Create Account"/></p>
     <!-- <a href="#" class="prettyButton">
 		<span class="createAccount">Create Account</span>
 	</a>-->
