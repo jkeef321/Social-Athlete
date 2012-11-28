@@ -35,6 +35,16 @@ public class SADataLoad implements ApplicationListener<ContextRefreshedEvent>{
     	philaunion.setLeague(mls);
     	philaunion.persist();
     	
+    	SATeam fcdallas = new SATeam();
+    	fcdallas.setTeamName("FC Dallas");
+    	fcdallas.setLeague(mls);
+    	fcdallas.persist();
+    	
+    	SATeam chivasusa = new SATeam();
+    	chivasusa.setTeamName("Chivas USA");
+    	chivasusa.setLeague(mls);
+    	chivasusa.persist();
+    	
     	SAAccountType twitter = new SAAccountType();
     	twitter.setPlatform("Twitter");
     	twitter.persist();
@@ -59,6 +69,21 @@ public class SADataLoad implements ApplicationListener<ContextRefreshedEvent>{
     	zac_sa.setAccountHandle("zacmacmath");
     	zac_sa.persist();
     	
+    	SASocialAccount acosta_sa = new SASocialAccount();
+    	acosta_sa.setAccountType(twitter);
+    	acosta_sa.setAccountHandle("KellynAcosta");
+    	acosta_sa.persist();
+    	
+    	SASocialAccount adu_sa = new SASocialAccount();
+    	adu_sa.setAccountType(twitter);
+    	adu_sa.setAccountHandle("FreddyAdu");
+    	adu_sa.persist();
+    	
+    	SASocialAccount agudelo_sa = new SASocialAccount();
+    	agudelo_sa.setAccountType(twitter);
+    	agudelo_sa.setAccountHandle("jagudelo11");
+    	agudelo_sa.persist();
+    	
     	SAPlayer valdes = new SAPlayer();
     	valdes.setPlayerName("Carlos Valdes");
     	valdes.setTeam(philaunion);
@@ -74,6 +99,31 @@ public class SADataLoad implements ApplicationListener<ContextRefreshedEvent>{
     	zac_hs.add(zac_sa);
     	zac.setSocialAccount(zac_hs);
     	zac.persist();
+    	
+    	SAPlayer acosta = new SAPlayer();
+    	acosta.setPlayerName("Kellyn Acosta");
+    	acosta.setTeam(fcdallas);
+    	HashSet acosta_hs = new HashSet();
+    	acosta_hs.add(acosta_sa);
+    	acosta.setSocialAccount(acosta_hs);
+    	acosta.persist();
+    	
+    	SAPlayer adu = new SAPlayer();
+    	adu.setPlayerName("Freddy Adu");
+    	adu.setTeam(philaunion);
+    	HashSet adu_hs = new HashSet();
+    	adu_hs.add(adu_sa);
+    	adu.setSocialAccount(adu_hs);
+    	adu.persist();
+    	
+    	SAPlayer agudelo = new SAPlayer();
+    	agudelo.setPlayerName("Juan Agudelo");
+    	agudelo.setTeam(chivasusa);
+    	HashSet agudelo_hs = new HashSet();
+    	agudelo_hs.add(agudelo_sa);
+    	agudelo.setSocialAccount(agudelo_hs);
+    	agudelo.persist();
+    	
     	
     	/*SAUser justin = new SAUser();
     	justin.setEmailAddress("justin@keefer.com");
