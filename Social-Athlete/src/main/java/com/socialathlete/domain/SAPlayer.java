@@ -19,6 +19,5 @@ public class SAPlayer {
     @ManyToOne
     private SATeam team;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<SASocialAccount> socialAccount = new HashSet<SASocialAccount>();
+    private String twitterAccount;
 }

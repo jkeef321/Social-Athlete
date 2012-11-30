@@ -4,7 +4,6 @@
 package com.socialathlete.web;
 
 import com.socialathlete.domain.SAPlayer;
-import com.socialathlete.domain.SASocialAccount;
 import com.socialathlete.domain.SATeam;
 import com.socialathlete.web.SAPlayerController;
 import java.io.UnsupportedEncodingException;
@@ -88,7 +87,6 @@ privileged aspect SAPlayerController_Roo_Controller {
     
     void SAPlayerController.populateEditForm(Model uiModel, SAPlayer SAPlayer_) {
         uiModel.addAttribute("SAPlayer_", SAPlayer_);
-        uiModel.addAttribute("sasocialaccounts", SASocialAccount.findAllSASocialAccounts());
         uiModel.addAttribute("sateams", SATeam.findAllSATeams());
     }
     

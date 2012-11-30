@@ -3,11 +3,14 @@ package com.socialathlete.dao;
 import java.util.List;
 import com.socialathlete.domain.SAUser;
 import com.socialathlete.domain.SAPlayer;
-import com.socialathlete.domain.SASocialAccount;
+import com.socialathlete.domain.SATeam;
 import java.util.Set;
 
 public interface UserDAO {
-	public List<String> getFollowersByUserId(String userid);
+	
+	public String getTeamByUserName(String username);
+	
+	public List<String> getPlayersByTeam(String team);
 	
 	public List<String> getTeamsByLeague(String league);
 	
@@ -15,7 +18,6 @@ public interface UserDAO {
 	
 	public void saveUser(SAUser user);
 
-	public Set<SAPlayer> getPlayersByTeam(String team);
+	public SATeam getTeamByName(String team);
 	
-	public Set<SASocialAccount> getSocialAccountByHandle(String handle);
 }

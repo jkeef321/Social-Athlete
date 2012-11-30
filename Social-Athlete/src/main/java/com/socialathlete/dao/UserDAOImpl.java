@@ -16,7 +16,7 @@ import javax.persistence.NoResultException;
 
 import org.springframework.stereotype.Service;
 
-import com.socialathlete.domain.SASocialAccount;
+import com.socialathlete.domain.SATeam;
 import com.socialathlete.domain.SAUser;
 import com.socialathlete.domain.SAPlayer;
 import com.socialathlete.web.SACreateAccountController;
@@ -36,13 +36,15 @@ public class UserDAOImpl implements UserDAO {
         this.emf = emf;
     }
 	
-	public List<String> getFollowersByUserId(String userid){
+	public List<String> getPlayersByTeam(String team){
 		EntityManager em = this.emf.createEntityManager();
 		try {
-			Query query = em.createQuery("SELECT sa.accountHandle  from SAUser u join u.following p join p.socialAccount sa where u.username = ?1");
-			query.setParameter(1, userid);
+			
+			Query query = em.createQuery("SELECT p.twitterAccount from SAPlayer p join p.team t where t.teamName = ?1");
+			query.setParameter(1, team);
 			List results = query.getResultList();
 			ArrayList <String> result = new ArrayList();
+			log.error("Number of results: " + results.size());
 			if(results.size()!= 0)
 			{
 				Iterator it = results.iterator();
@@ -54,6 +56,13 @@ public class UserDAOImpl implements UserDAO {
 			}
 			
 			return result;
+		}
+		catch(Exception e)
+		{
+			log.error(e);
+			
+			List<String> to_return = new ArrayList();
+			return to_return;
 		}
 		finally {
 			if (em != null) {
@@ -125,28 +134,14 @@ public class UserDAOImpl implements UserDAO {
 		
 	}
 	
-	public Set<SAPlayer> getPlayersByTeam(String team){
+	public SATeam getTeamByName(String team){
 		EntityManager em = this.emf.createEntityManager();
 		try {
 			
-			log.error("Team to search is : " + team);
 			
-			Query query = em.createQuery(" select OBJECT(sp) from SAPlayer sp join sp.team t where t.teamName = ?1");
+			Query query = em.createQuery(" select OBJECT(t) from SATeam t where t.teamName = ?1");
 			query.setParameter(1, team);
-			List results = query.getResultList();
-			HashSet<SAPlayer> result = new HashSet();
-			
-			log.error("Number of results: " + results.size());
-			if(results.size()!= 0)
-			{
-				Iterator it = results.iterator();
-				while(it.hasNext())
-				{
-					result.add((SAPlayer) it.next());
-				}
-				
-			}
-			log.error("Number in result: " + result.size());
+			SATeam result = (SATeam) query.getSingleResult();
 			
 			return result;
 		}
@@ -158,23 +153,27 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 	
-	public Set<SASocialAccount> getSocialAccountByHandle(String handle)
-	{
+	public String getTeamByUserName(String username){
 		EntityManager em = this.emf.createEntityManager();
 		try {
-			Query query = em.createQuery(" from SASocialAccount sa where sa.accountHandle = ?1");
-			query.setParameter(1, handle);
-			List results = query.getResultList();
-			HashSet<SASocialAccount> result = new HashSet();
-			if(results.size()!= 0)
-			{
-				Iterator it = results.iterator();
-				while(it.hasNext())
-				{
-					result.add((SASocialAccount) it.next());
-				}
-				
+			
+			String result = "";
+			
+			try{
+			Query query = em.createQuery("select u.following from SAUser u where u.username = ?1");
+			query.setParameter(1, username);
+			SATeam result_team = (SATeam) query.getSingleResult();
+			result = result_team.getTeamName();
+		
 			}
+			catch(Exception e)
+			{
+				log.error(e);
+				
+				result = null;
+				return result;
+			}
+			
 			
 			return result;
 		}
@@ -184,7 +183,6 @@ public class UserDAOImpl implements UserDAO {
 			}
 			
 		}
-		
-	
 	}
+	
 }

@@ -14,6 +14,10 @@ import org.springframework.stereotype.Service;
 
 import com.socialathlete.domain.SocialMessage;
 import com.socialathlete.dao.UserDAO;
+import com.socialathlete.dao.UserDAOImpl;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 @Service
 public class TwitterSocialService implements SocialService {
@@ -21,6 +25,8 @@ public class TwitterSocialService implements SocialService {
 	private final Twitter twitter;
     
 	private final UserDAO userDao;
+	
+	private static final Log log = LogFactory.getLog(UserDAOImpl.class);
 	
 	@Inject
 	public TwitterSocialService(Twitter twitter, UserDAO userDao) {
@@ -31,7 +37,10 @@ public class TwitterSocialService implements SocialService {
 	public List <SocialMessage> getTimelineForFollowers(String userid)
 	{
 		//Get Followers
-		List <String> old_followers = userDao.getFollowersByUserId(userid);
+		log.error("Userid is: " + userid);
+		String team = userDao.getTeamByUserName(userid);
+		log.error("Team is: " + team);
+		List <String> old_followers = userDao.getPlayersByTeam(team);
 		List <SocialMessage> messages = new ArrayList();
 		TimelineOperations timelineOps = twitter.timelineOperations();
 		

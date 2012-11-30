@@ -5,7 +5,7 @@
     <form:create id="fc_com_socialathlete_domain_SAPlayer" modelAttribute="SAPlayer_" path="/saplayers" render="${empty dependencies}" z="zRObz6A59SHPN6tMCSjND6bmmuo=">
         <field:input field="playerName" id="c_com_socialathlete_domain_SAPlayer_playerName" z="o8AgxQtiUKDJTaD9fOCQlbkj3Ms="/>
         <field:select field="team" id="c_com_socialathlete_domain_SAPlayer_team" itemValue="id" items="${sateams}" path="/sateams" z="ZFxkGTTRajkdTM4Zl3crZUqZaSs="/>
-        <field:select field="socialAccount" id="c_com_socialathlete_domain_SAPlayer_socialAccount" itemValue="id" items="${sasocialaccounts}" multiple="true" path="/sasocialaccounts" z="WtQ0QhgjRfyX9JtuPjfdcGdwGII="/>
+        <field:input field="twitterAccount" id="c_com_socialathlete_domain_SAPlayer_twitterAccount" z="j1yH9DBe4LVIFGmxRqDAysWlHuI="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_socialathlete_domain_SAPlayer" render="${not empty dependencies}" z="YmBue7vxHndXH9SVTts53dv8NO4="/>
 </div>

@@ -3,6 +3,7 @@
 
 package com.socialathlete.domain;
 
+import com.socialathlete.domain.SATeam;
 import com.socialathlete.domain.SAUser;
 import com.socialathlete.domain.SAUserDataOnDemand;
 import java.security.SecureRandom;
@@ -27,6 +28,7 @@ privileged aspect SAUserDataOnDemand_Roo_DataOnDemand {
         setEmailAddress(obj, index);
         setEnabled(obj, index);
         setFirstName(obj, index);
+        setFollowing(obj, index);
         setLastName(obj, index);
         setPassword(obj, index);
         setRole(obj, index);
@@ -47,6 +49,11 @@ privileged aspect SAUserDataOnDemand_Roo_DataOnDemand {
     public void SAUserDataOnDemand.setFirstName(SAUser obj, int index) {
         String firstName = "firstName_" + index;
         obj.setFirstName(firstName);
+    }
+    
+    public void SAUserDataOnDemand.setFollowing(SAUser obj, int index) {
+        SATeam following = null;
+        obj.setFollowing(following);
     }
     
     public void SAUserDataOnDemand.setLastName(SAUser obj, int index) {

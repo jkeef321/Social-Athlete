@@ -6,7 +6,7 @@
         <table:table data="${saplayers}" id="l_com_socialathlete_domain_SAPlayer" path="/saplayers" z="t2rZk6FOqv5k11TDXV4HQ8izFLQ=">
             <table:column id="c_com_socialathlete_domain_SAPlayer_playerName" property="playerName" z="lKqviO7HNyMOI1xAJIhjZYLAm48="/>
             <table:column id="c_com_socialathlete_domain_SAPlayer_team" property="team" z="4KvPZtaUoOiaOZB6y6G3aKH+IFM="/>
-            <table:column id="c_com_socialathlete_domain_SAPlayer_socialAccount" property="socialAccount" z="Z/RvEtIv7di7nxqOzECzSrytea8="/>
+            <table:column id="c_com_socialathlete_domain_SAPlayer_twitterAccount" property="twitterAccount" z="E8Xs4JA5aBPPsZEfhQ+I7Qxsb5U="/>
         </table:table>
     </page:list>
 </div>

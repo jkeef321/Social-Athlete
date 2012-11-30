@@ -3,10 +3,8 @@
 
 package com.socialathlete.web;
 
-import com.socialathlete.domain.SAAccountType;
 import com.socialathlete.domain.SALeague;
 import com.socialathlete.domain.SAPlayer;
-import com.socialathlete.domain.SASocialAccount;
 import com.socialathlete.domain.SATeam;
 import com.socialathlete.domain.SAUser;
 import com.socialathlete.domain.Userconnection;
@@ -18,30 +16,6 @@ import org.springframework.format.FormatterRegistry;
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
-    
-    public Converter<SAAccountType, String> ApplicationConversionServiceFactoryBean.getSAAccountTypeToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.socialathlete.domain.SAAccountType, java.lang.String>() {
-            public String convert(SAAccountType sAAccountType) {
-                return new StringBuilder().append(sAAccountType.getPlatform()).toString();
-            }
-        };
-    }
-    
-    public Converter<Long, SAAccountType> ApplicationConversionServiceFactoryBean.getIdToSAAccountTypeConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.socialathlete.domain.SAAccountType>() {
-            public com.socialathlete.domain.SAAccountType convert(java.lang.Long id) {
-                return SAAccountType.findSAAccountType(id);
-            }
-        };
-    }
-    
-    public Converter<String, SAAccountType> ApplicationConversionServiceFactoryBean.getStringToSAAccountTypeConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.socialathlete.domain.SAAccountType>() {
-            public com.socialathlete.domain.SAAccountType convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), SAAccountType.class);
-            }
-        };
-    }
     
     public Converter<SALeague, String> ApplicationConversionServiceFactoryBean.getSALeagueToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.socialathlete.domain.SALeague, java.lang.String>() {
@@ -70,7 +44,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<SAPlayer, String> ApplicationConversionServiceFactoryBean.getSAPlayerToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.socialathlete.domain.SAPlayer, java.lang.String>() {
             public String convert(SAPlayer sAPlayer) {
-                return new StringBuilder().append(sAPlayer.getPlayerName()).toString();
+                return new StringBuilder().append(sAPlayer.getPlayerName()).append(' ').append(sAPlayer.getTwitterAccount()).toString();
             }
         };
     }
@@ -87,30 +61,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<java.lang.String, com.socialathlete.domain.SAPlayer>() {
             public com.socialathlete.domain.SAPlayer convert(String id) {
                 return getObject().convert(getObject().convert(id, Long.class), SAPlayer.class);
-            }
-        };
-    }
-    
-    public Converter<SASocialAccount, String> ApplicationConversionServiceFactoryBean.getSASocialAccountToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.socialathlete.domain.SASocialAccount, java.lang.String>() {
-            public String convert(SASocialAccount sASocialAccount) {
-                return new StringBuilder().append(sASocialAccount.getAccountHandle()).toString();
-            }
-        };
-    }
-    
-    public Converter<Long, SASocialAccount> ApplicationConversionServiceFactoryBean.getIdToSASocialAccountConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.socialathlete.domain.SASocialAccount>() {
-            public com.socialathlete.domain.SASocialAccount convert(java.lang.Long id) {
-                return SASocialAccount.findSASocialAccount(id);
-            }
-        };
-    }
-    
-    public Converter<String, SASocialAccount> ApplicationConversionServiceFactoryBean.getStringToSASocialAccountConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.socialathlete.domain.SASocialAccount>() {
-            public com.socialathlete.domain.SASocialAccount convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), SASocialAccount.class);
             }
         };
     }
@@ -188,18 +138,12 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     }
     
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
-        registry.addConverter(getSAAccountTypeToStringConverter());
-        registry.addConverter(getIdToSAAccountTypeConverter());
-        registry.addConverter(getStringToSAAccountTypeConverter());
         registry.addConverter(getSALeagueToStringConverter());
         registry.addConverter(getIdToSALeagueConverter());
         registry.addConverter(getStringToSALeagueConverter());
         registry.addConverter(getSAPlayerToStringConverter());
         registry.addConverter(getIdToSAPlayerConverter());
         registry.addConverter(getStringToSAPlayerConverter());
-        registry.addConverter(getSASocialAccountToStringConverter());
-        registry.addConverter(getIdToSASocialAccountConverter());
-        registry.addConverter(getStringToSASocialAccountConverter());
         registry.addConverter(getSATeamToStringConverter());
         registry.addConverter(getIdToSATeamConverter());
         registry.addConverter(getStringToSATeamConverter());

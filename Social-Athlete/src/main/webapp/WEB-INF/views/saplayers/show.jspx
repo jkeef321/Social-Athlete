@@ -5,6 +5,6 @@
     <page:show id="ps_com_socialathlete_domain_SAPlayer" object="${saplayer_}" path="/saplayers" z="J5CyUd4GeuaXuj4YJ7cvSN78pHo=">
         <field:display field="playerName" id="s_com_socialathlete_domain_SAPlayer_playerName" object="${saplayer_}" z="OeOWKvrhnkz7ERs/fvIwO7GQEMc="/>
         <field:display field="team" id="s_com_socialathlete_domain_SAPlayer_team" object="${saplayer_}" z="rAt7BdTwP/VfUXCvCrjSV1FmaDg="/>
-        <field:display field="socialAccount" id="s_com_socialathlete_domain_SAPlayer_socialAccount" object="${saplayer_}" z="FZ9sRSiQ5T3DPwzcidu7Euyohq4="/>
+        <field:display field="twitterAccount" id="s_com_socialathlete_domain_SAPlayer_twitterAccount" object="${saplayer_}" z="wt3AoMWkGoA68NmkWobnszPKRrM="/>
     </page:show>
 </div>

@@ -4,9 +4,7 @@
 package com.socialathlete.domain;
 
 import com.socialathlete.domain.SAPlayer;
-import com.socialathlete.domain.SASocialAccount;
 import com.socialathlete.domain.SATeam;
-import java.util.Set;
 
 privileged aspect SAPlayer_Roo_JavaBean {
     
@@ -26,12 +24,12 @@ privileged aspect SAPlayer_Roo_JavaBean {
         this.team = team;
     }
     
-    public Set<SASocialAccount> SAPlayer.getSocialAccount() {
-        return this.socialAccount;
+    public String SAPlayer.getTwitterAccount() {
+        return this.twitterAccount;
     }
     
-    public void SAPlayer.setSocialAccount(Set<SASocialAccount> socialAccount) {
-        this.socialAccount = socialAccount;
+    public void SAPlayer.setTwitterAccount(String twitterAccount) {
+        this.twitterAccount = twitterAccount;
     }
     
 }
