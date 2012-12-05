@@ -42,7 +42,7 @@
                     <form:options items="${team_list}" />
                     </form:select>
 
-    <p>Create Account<input type="submit" value="Submit"/></p>
+    <input type="submit" value="Create Account"/>
 	</form:form>
   </util:panel>
 </div>
